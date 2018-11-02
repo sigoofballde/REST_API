@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Billaway</title>
+    <link rel="stylesheet" href="/stylesheets/main.css" />
+</head>
+<body>
+    <h1>Welcome to Billaway</h1>
+    <p id="billaway_ad"><a id="billaway_url"></a></p>
+
+<script type="text/javascript">
+    /*Use xmlhttprequest to get the URL for the specifict ad*/
+    var div = document.getElementById("billaway_url");
+    var xmlReq = new XMLHttpRequest();
+    xmlReq.withCredentials = true;
+    xmlReq.onreadystatechange = function () {
+        if (xmlReq.readyState === XMLHttpRequest.DONE) {   // XMLHttpRequest.DONE == 4
+            if (xmlReq.status === 200) {
+                /*When valid response is received set the URL and text of url div */
+                div.href = xmlReq.responseText;
+                div.textContent = xmlReq.responseText;
+            }
+            else if (xmlReq.status === 400) {
+                alert('There was an error 400');
+            }
+            else {
+                alert('There was an error retrieving your text');
+            }
+        }
+    };
+
+    xmlReq.open("GET", "http://localhost:3000/Ad?text", true);
+    xmlReq.send();
+</script>
+</body>
+
+</html>

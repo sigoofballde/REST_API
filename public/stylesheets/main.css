@@ -1,0 +1,21 @@
+﻿body {
+    padding: 50px;
+    font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+    color: #00B7FF;
+}
+
+p#billaway_ad {
+    background-image: url(http://localhost:3000/Ad?img);
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 300px;
+    width:auto;
+}
+
+a#billaway_url {
+    color:black;
+
+}
